@@ -88,7 +88,15 @@ public class Answer {
 			// a perfect square and therefore the same process will work to decrypt the string 
 			// if it has a perfect square length and it is done using the "encrypt" method 
 			// in the Solver object which returns an encrypted or decrypted string.
-		if(formattedString.contains("*") == true){
+			// if the stringLength is equal to the number of cells in the matrix and if the matrix 
+			// is not a square matrix then it is impossible to determine whether to encrypt or decrypt
+			// the string hence we give out both the cases.
+		if(stringLength == (row*column) && row !=  column){
+			System.out.println("Encrypted: " + getSolution.encrypt(formattedString, column, row, stringLength));
+			System.out.println("Decrypted: " + getSolution.decrypt(formattedString, column, row));
+			
+		}
+		else if(formattedString.contains("*") == true){
 			
 			System.out.println(getSolution.decrypt(formattedString, column, row));
 		}
