@@ -26,83 +26,28 @@
 
 
 
-import java.lang.Math;
-import java.util.*;
+
+
+
 
 public class Answer {
 	
+	
 	public static void main(String[] args){
 		
-			// Take the input string that has to be decrypted or encrypted
-			// and store it as the "inputString"
-		Scanner sc =  new Scanner(System.in);
-		String inputString = sc.nextLine();
+		//Create a GUI for the problem where the user decides 
+		GuiFrame frame = new GuiFrame();
+		
+		//call the createWindow method in the gui class
+		frame.createWindow();
 		
 		
 		
 		
-			// The inputstring may have white spaces in between
-			// we remove the whitespaces and store the new string 
-			// with the whitespaces removed as the "formattedString"
-		String formattedString;
-		formattedString = inputString.replaceAll("\\s", "");// Removes the whitespaces
 		
 		
-		
-		
-			// Then we find out the length of the "formattedString" 
-			// this will give us the idea of what the size of the matrix should be
-		int stringLength = 0;
-		stringLength = formattedString.length();
-		
-		
-		
-			// Since the matrix has to be a square matrix + additional rows we find
-			// the size of the square matrix by taking the square root of the length
-		double takeSqrt;
-		takeSqrt = Math.sqrt(stringLength);
-		
-		
-		
-		
-			// The base integer of the square root will give us the number of columns 
-			// that have to be taken for the matrix
-			// and the number of rows that have to be there for the decryption is 
-			// obtained by dividing the length of the input and the number of columns
-		int column,row;
-		column = (int) takeSqrt;
-		row = stringLength/column;
-		
-		
-			// Creating the object for the Solver class to get the encrypted/decrypted string
-			// the Solver class contains methods to encrypt and decrypt the input string(formattedString)
-		Solver getSolution = new Solver();
-		
-		
-			// check for '*' in the input string
-			// if the input string(formattedString) contains the "*" character, then
-			// it means that the string has to be decrypted and it is done using the "decrypt"
-			// method in the Solver object which returns the decrypted string.
-			// else if the input string(formattedString) doesn't contain the "*" character
-			// it means that it either is to be encrypted or the encrypted string length is 
-			// a perfect square and therefore the same process will work to decrypt the string 
-			// if it has a perfect square length and it is done using the "encrypt" method 
-			// in the Solver object which returns an encrypted or decrypted string.
-			// if the stringLength is equal to the number of cells in the matrix and if the matrix 
-			// is not a square matrix then it is impossible to determine whether to encrypt or decrypt
-			// the string hence we give out both the cases.
-		if(stringLength == (row*column) && row !=  column){
-			System.out.println("Encrypted: " + getSolution.encrypt(formattedString, column, row, stringLength));
-			System.out.println("Decrypted: " + getSolution.decrypt(formattedString, column, row));
-			
-		}
-		else if(formattedString.contains("*") == true){
-			
-			System.out.println(getSolution.decrypt(formattedString, column, row));
-		}
-		else{
-			System.out.println(getSolution.encrypt(formattedString, column, row, stringLength));
-		}
 	}
+
+	
 
 	}
